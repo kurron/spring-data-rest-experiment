@@ -56,6 +56,8 @@
           <element id="library" level="project" name="validation-api-1.0.0.GA" />
           <element id="library" level="project" name="javassist-3.12.0.GA" />
           <element id="library" level="project" name="spring-data-commons-1.5.0.RELEASE" />
+          <element id="library" level="project" name="spring-data-jpa-1.3.0.RELEASE" />
+          <element id="library" level="project" name="aspectjrt-1.7.1" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="spring-data-rest-experiment/web/Web" />
