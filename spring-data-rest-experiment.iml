@@ -88,6 +88,7 @@
     <orderEntry type="library" exported="" name="validation-api-1.0.0.GA" level="project" />
     <orderEntry type="library" scope="TEST" name="spring-test-3.1.4.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="javassist-3.12.0.GA" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="spring-data-commons-1.5.0.RELEASE" level="project" />
   </component>
 </module>
 
