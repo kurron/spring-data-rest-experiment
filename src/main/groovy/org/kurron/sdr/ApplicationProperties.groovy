@@ -1,4 +1,4 @@
-package org.kurron.bare.metal.producer
+package org.kurron.sdr
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 
