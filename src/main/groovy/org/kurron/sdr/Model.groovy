@@ -1,6 +1,7 @@
 package org.kurron.sdr
 
 import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.mongodb.core.mapping.Document
 
 /**
@@ -13,4 +14,7 @@ class Model {
     UUID primaryKey
     Date timestamp
     String randomString
+
+    @LastModifiedDate
+    Date lastModified
 }
