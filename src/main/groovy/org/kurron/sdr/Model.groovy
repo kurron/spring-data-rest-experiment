@@ -12,9 +12,11 @@ class Model {
 
     @Id
     UUID primaryKey
-    Date timestamp
-    String randomString
 
     @LastModifiedDate
     Date lastModified
+
+    User user
+
+    Permissions permissions
 }

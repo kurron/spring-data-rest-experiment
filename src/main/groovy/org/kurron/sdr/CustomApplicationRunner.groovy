@@ -7,6 +7,7 @@ import org.springframework.boot.ApplicationRunner
 import org.springframework.data.mongodb.core.MongoOperations
 
 import java.time.Duration
+import java.util.concurrent.ThreadLocalRandom
 
 /**
  * Handles command-line arguments.
@@ -31,8 +32,17 @@ class CustomApplicationRunner implements ApplicationRunner {
         Calendar.getInstance( TimeZone.getTimeZone('UTC') ).time
     }
 
-    private static Model createModel( String payload ) {
-        new Model( primaryKey: generateModelID(), timestamp: generateTimeStamp(),  randomString: payload )
+    private static String randomHexString() {
+        Integer.toHexString( ThreadLocalRandom.current().nextInt( Integer.MAX_VALUE ) )
+    }
+    private static boolean randomBoolean() {
+        ThreadLocalRandom.current().nextBoolean()
+    }
+
+    private static Model createModel() {
+        new Model( primaryKey: generateModelID(),
+                   user: new User( username: randomHexString(), password: randomHexString() ),
+                   permissions: new Permissions( administrator: randomBoolean(), powerUser: randomBoolean(), standardUser: randomBoolean() ) )
     }
 
     @Override
@@ -50,7 +60,7 @@ class CustomApplicationRunner implements ApplicationRunner {
         log.info "Inserting ${numberOfDocuments} documents with a binary payload size of ${payloadSize} into the database"
 
         def messages = (1..numberOfDocuments).collect {
-            createModel( UUID.randomUUID() as String )
+            createModel()
         }
 
         log.info "Created ${messages.size()} messages. Sending them to stream."

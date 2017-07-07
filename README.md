@@ -1,10 +1,11 @@
 # Overview
-This project is a simple Docker image that provides a component that can be used to benchmark RabbitMQ deployments.
-This application will publish messages to a a queue.
+This project is an experiment to see how easily one can create a read-only REST API against a MongoDB store.
+The idea is that an internal service populates specific documents in the database that are intended only for
+REST API callers.  The APIs are read-only and meant to be cache-friendly.
 
 # Prerequisites
 * a working [Docker](http://docker.io) engine
-* a working [Docker Compose](http://docker.io) installation
+* a working [Java 8](http://java.sun.com) installation
 
 # Building
 Type `./build.sh` to build the image.
@@ -25,4 +26,3 @@ application's behavior.  Examine the script to see the current list of arguments
 This project is licensed under the [Apache License Version 2.0, January 2004](http://www.apache.org/licenses/).
 
 # List of Changes
-
