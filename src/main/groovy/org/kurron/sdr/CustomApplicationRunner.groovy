@@ -4,11 +4,9 @@ import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
-import org.springframework.context.ConfigurableApplicationContext
 import org.springframework.data.mongodb.core.MongoOperations
 
 import java.time.Duration
-import java.util.concurrent.ThreadLocalRandom
 
 /**
  * Handles command-line arguments.
@@ -23,9 +21,6 @@ class CustomApplicationRunner implements ApplicationRunner {
     private MongoOperations theTemplate
 
     @Autowired
-    private ConfigurableApplicationContext theContext
-
-    @Autowired
     private ApplicationProperties theConfiguration
 
     private static UUID generateModelID() {
@@ -36,12 +31,8 @@ class CustomApplicationRunner implements ApplicationRunner {
         Calendar.getInstance( TimeZone.getTimeZone('UTC') ).time
     }
 
-    private static void randomize(byte[] buffer) {
-        ThreadLocalRandom.current().nextBytes(buffer)
-    }
-
-    private static Model createModel( byte[] payload ) {
-        new Model( primaryKey: generateModelID(), timestamp: generateTimeStamp(),  randomBytes: payload )
+    private static Model createModel( String payload ) {
+        new Model( primaryKey: generateModelID(), timestamp: generateTimeStamp(),  randomString: payload )
     }
 
     @Override
@@ -59,9 +50,7 @@ class CustomApplicationRunner implements ApplicationRunner {
         log.info "Inserting ${numberOfDocuments} documents with a binary payload size of ${payloadSize} into the database"
 
         def messages = (1..numberOfDocuments).collect {
-            def buffer = new byte[payloadSize]
-            randomize( buffer )
-            createModel( buffer )
+            createModel( UUID.randomUUID() as String )
         }
 
         log.info "Created ${messages.size()} messages. Sending them to stream."
@@ -75,7 +64,5 @@ class CustomApplicationRunner implements ApplicationRunner {
         long durationMillis = stop - start
         def durationISO = Duration.ofMillis( durationMillis )
         log.info( '{} documents has taken {} to insert', completed, durationISO as String )
-
-        theContext.close()
     }
 }

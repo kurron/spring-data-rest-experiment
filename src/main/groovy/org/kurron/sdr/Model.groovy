@@ -12,5 +12,5 @@ class Model {
     @Id
     UUID primaryKey
     Date timestamp
-    byte[] randomBytes
+    String randomString
 }
