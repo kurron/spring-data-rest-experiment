@@ -1,8 +1,8 @@
 package org.kurron.sdr
 
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.PagingAndSortingRepository
 
 /**
  * Handles interaction with MongoDB.
  */
-interface ModelRepository extends CrudRepository<Model, UUID> {}
+interface ModelRepository extends PagingAndSortingRepository<Model, UUID> {}
