@@ -20,6 +20,9 @@ Docker will automatically install the newly built image into the cache.
 `./run-container.sh` will launch the image with default values.  The script takes various arguments that control the
 application's behavior.  Examine the script to see the current list of arguments.
 
+## HAL Browser
+Hit `localhost:8080/api` to pull up the HAL browser.
+
 # Troubleshooting
 
 # License and Credits
