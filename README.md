@@ -23,6 +23,9 @@ application's behavior.  Examine the script to see the current list of arguments
 ## HAL Browser
 Hit `localhost:8080/api` to pull up the HAL browser.
 
+## API Discoverability
+To begin walking the API, hit `http://localhost:8080/api/`
+
 # Troubleshooting
 
 # License and Credits
