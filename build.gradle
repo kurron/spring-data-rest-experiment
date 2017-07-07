@@ -63,8 +63,9 @@ repositories {
 defaultTasks = ['clean','build']
 
 dependencies {
-  compile 'org.codehaus.groovy:groovy-all::indy'
-  compile('org.springframework.boot:spring-boot-starter-data-mongodb')
-  compile('org.springframework.boot:spring-boot-starter-data-rest')
-  testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile 'org.codehaus.groovy:groovy-all::indy'
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.data:spring-data-rest-hal-browser')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
