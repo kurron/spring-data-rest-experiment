@@ -26,6 +26,9 @@ Hit `localhost:8080/api` to pull up the HAL browser.
 ## API Discoverability
 To begin walking the API, hit `http://localhost:8080/api/`
 
+## ALPS Information
+To walk the [ALPS](http://alps.io/) profile, hit `http://localhost:8080/api/profile`.
+
 # Troubleshooting
 
 # License and Credits
