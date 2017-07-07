@@ -29,6 +29,10 @@ To begin walking the API, hit `http://localhost:8080/api/`
 ## ALPS Information
 To walk the [ALPS](http://alps.io/) profile, hit `http://localhost:8080/api/profile`.
 
+## JSON Schema
+`GET` the ALPS profile providing the `Accept:application/schema+json` header. For example,
+`http://localhost:8080/api/profile/models Accept:application/schema+json`
+
 # Troubleshooting
 
 # License and Credits
